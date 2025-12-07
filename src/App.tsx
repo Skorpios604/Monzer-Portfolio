@@ -15,8 +15,9 @@ function App() {
       </div>
       <div className="relative z-10 flex items-center justify-center w-full h-full pointer-events-auto">
         <Shuffle
-          text="Hello World"
-          className="text-4xl font-bold text-white tracking-wider"
+          text="REACT BITS"
+          className="text-4xl text-white tracking-wider"
+          style={{ fontFamily: "'Press Start 2P', cursive" }}
           shuffleDirection="right"
           duration={0.35}
           animationMode="evenodd"
