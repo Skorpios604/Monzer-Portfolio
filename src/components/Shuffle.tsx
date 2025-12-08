@@ -348,7 +348,8 @@ const Shuffle: React.FC<ShuffleProps> = ({
                 triggerOnce,
                 respectReducedMotion,
                 triggerOnHover,
-                onShuffleComplete
+                onShuffleComplete,
+                className
             ],
             scope: ref
         }

@@ -17,7 +17,7 @@ function App() {
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full pointer-events-auto gap-4">
         <Shuffle
           text="Monzer Mourad"
-          className="text-4xl text-white tracking-wider"
+          className="text-5xl text-white tracking-widest"
           style={{ fontFamily: "'Press Start 2P', cursive" }}
           shuffleDirection="right"
           duration={0.35}
