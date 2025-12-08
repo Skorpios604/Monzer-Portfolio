@@ -7,7 +7,7 @@ function App() {
     <div className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Lightning
-          hue={275}
+          hue={270}
           xOffset={0}
           speed={1}
           intensity={1}
@@ -17,7 +17,7 @@ function App() {
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full pointer-events-auto gap-4">
         <Shuffle
           text="Monzer Mourad"
-          className="text-[2.75rem] text-white tracking-widest"
+          className="text-[2.75rem] text-[hsl(310,100%,65%)] tracking-widest"
           style={{ fontFamily: "'Press Start 2P', cursive" }}
           shuffleDirection="right"
           duration={0.35}
