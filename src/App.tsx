@@ -7,7 +7,7 @@ function App() {
     <div className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Lightning
-          hue={220}
+          hue={275}
           xOffset={0}
           speed={1}
           intensity={1}
