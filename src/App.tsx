@@ -36,8 +36,9 @@ function App() {
           revealDirection="start"
           sequential={true}
           speed={100}
-          parentClassName="text-[2.20rem]"
+          parentClassName="text-[2.20rem] text-white"
           className=""
+          encryptedClassName="text-white"
         />
       </div>
     </div>
