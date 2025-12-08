@@ -1,5 +1,6 @@
 import Lightning from './components/Lightning'
 import Shuffle from './components/Shuffle'
+import GradientText from './components/GradientText'
 
 function App() {
   return (
@@ -13,9 +14,9 @@ function App() {
           size={1}
         />
       </div>
-      <div className="relative z-10 flex items-center justify-center w-full h-full pointer-events-auto">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full pointer-events-auto gap-4">
         <Shuffle
-          text="REACT BITS"
+          text="Monzer Mourad"
           className="text-4xl text-white tracking-wider"
           style={{ fontFamily: "'Press Start 2P', cursive" }}
           shuffleDirection="right"
@@ -29,6 +30,14 @@ function App() {
           triggerOnHover={true}
           respectReducedMotion={true}
         />
+        <GradientText
+          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+          animationSpeed={3}
+          showBorder={false}
+          className="text-xl"
+        >
+          Codesmith of digital realms
+        </GradientText>
       </div>
     </div>
   )
