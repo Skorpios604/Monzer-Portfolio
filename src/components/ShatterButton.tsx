@@ -9,6 +9,8 @@ export interface ShatterButtonProps {
     className?: string
     shardCount?: number
     shatterColor?: string
+    shatterColors?: string[]
+    textColor?: string
     onClick?: () => void
 }
 
@@ -20,13 +22,16 @@ interface Shard {
     velocityX: number
     velocityY: number
     size: number
+    color: string
 }
 
 export default function ShatterButton({
     children,
     className = "",
-    shardCount = 20,
+    shardCount = 40,
     shatterColor = "#00ffff",
+    shatterColors = [],
+    textColor,
     onClick,
 }: ShatterButtonProps) {
     const [isShattered, setIsShattered] = useState(false)
@@ -36,6 +41,8 @@ export default function ShatterButton({
         if (isShattered) return
 
         const newShards: Shard[] = []
+        const colors = shatterColors.length > 0 ? shatterColors : [shatterColor]
+
         for (let i = 0; i < shardCount; i++) {
             const angle = (Math.PI * 2 * i) / shardCount + Math.random() * 0.5
             const velocity = 100 + Math.random() * 200
@@ -47,6 +54,7 @@ export default function ShatterButton({
                 velocityX: Math.cos(angle) * velocity,
                 velocityY: Math.sin(angle) * velocity,
                 size: 4 + Math.random() * 12,
+                color: colors[Math.floor(Math.random() * colors.length)],
             })
         }
 
@@ -58,7 +66,7 @@ export default function ShatterButton({
             setIsShattered(false)
             setShards([])
         }, 1000)
-    }, [isShattered, shardCount, onClick])
+    }, [isShattered, shardCount, onClick, shatterColor, shatterColors])
 
     return (
         <div className="relative inline-block">
@@ -75,7 +83,7 @@ export default function ShatterButton({
                 style={{
                     background: `linear-gradient(135deg, ${shatterColor}22 0%, ${shatterColor}44 100%)`,
                     border: `1px solid ${shatterColor}66`,
-                    color: shatterColor,
+                    color: textColor || shatterColor,
                     boxShadow: `0 0 20px ${shatterColor}33, inset 0 0 20px ${shatterColor}11`,
                 }}
                 type="button"
@@ -121,8 +129,8 @@ export default function ShatterButton({
                             top: "50%",
                             width: shard.size,
                             height: shard.size,
-                            background: shatterColor,
-                            boxShadow: `0 0 10px ${shatterColor}, 0 0 20px ${shatterColor}`,
+                            background: shard.color,
+                            boxShadow: `0 0 10px ${shard.color}, 0 0 20px ${shard.color}`,
                             clipPath: `polygon(
                 ${Math.random() * 50}% 0%,
                 100% ${Math.random() * 50}%,

@@ -42,7 +42,13 @@ function App() {
           encryptedClassName="text-white"
         />
         <div className="mt-8">
-          <ShatterButton shatterColor="#00ffff">Download Resume</ShatterButton>
+          <ShatterButton
+            shatterColor="#9b5de5"
+            textColor="#ff00ff"
+            shatterColors={["#9b5de5", "#ff00ff"]}
+          >
+            Run Simulation
+          </ShatterButton>
         </div>
       </div>
     </div>
