@@ -14,16 +14,20 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "face-api.js": "^0.22.2",
     "gsap": "^3.13.0",
     "motion": "^12.23.25",
+    "postprocessing": "^6.38.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "three": "^0.181.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.181.0",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.22",
     "eslint": "^9.39.1",
