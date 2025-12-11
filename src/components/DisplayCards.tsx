@@ -14,6 +14,7 @@ interface DisplayCardProps {
     iconClassName?: string;
     titleClassName?: string;
     image?: string;
+    link?: string;
 }
 
 function DisplayCard({
@@ -24,29 +25,43 @@ function DisplayCard({
     date = "Just now",
     titleClassName = "text-blue-500",
     image,
+    link,
 }: DisplayCardProps) {
+    const content = (
+        <div className="flex h-full flex-col justify-between px-4 py-3 [&>*]:flex [&>*]:items-center [&>*]:gap-2">
+            <div>
+                <span className="relative inline-block rounded-full bg-blue-800 p-1">
+                    {icon}
+                </span>
+                <p className={cn("text-lg font-medium transition-colors duration-300 group-hover:text-[#9b5de5]", titleClassName)}>{title}</p>
+            </div>
+            {image && (
+                <img src={image} alt={title} className="h-40 w-full rounded-lg object-cover object-top" />
+            )}
+            <p className="text-lg text-gray-300 text-center">{description}</p>
+            <p className="text-gray-400 text-center">{date}</p>
+        </div>
+    );
+
     return (
         <ElectricBorder
             color="#9b5de5"
             className={cn(
-                "group relative h-72 w-[44rem] -skew-y-[8deg] select-none rounded-xl bg-muted/70 backdrop-blur-sm transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[40rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] hover:bg-muted",
+                "group relative h-72 w-[44rem] -skew-y-[8deg] select-none rounded-xl bg-muted/70 backdrop-blur-sm transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[40rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] after:pointer-events-none hover:bg-muted",
                 className
             )}
             style={{ borderRadius: 12 }} // Matching rounded-xl approx 12px
         >
-            <div className="flex h-full flex-col justify-between px-4 py-3 [&>*]:flex [&>*]:items-center [&>*]:gap-2">
-                <div>
-                    <span className="relative inline-block rounded-full bg-blue-800 p-1">
-                        {icon}
-                    </span>
-                    <p className={cn("text-lg font-medium transition-colors duration-300 group-hover:text-[#9b5de5]", titleClassName)}>{title}</p>
-                </div>
-                {image && (
-                    <img src={image} alt={title} className="h-40 w-full rounded-lg object-cover object-top" />
-                )}
-                <p className="text-lg text-gray-300 text-center">{description}</p>
-                <p className="text-gray-400 text-center">{date}</p>
-            </div>
+            {link ? (
+                <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full w-full cursor-pointer"
+                >
+                    {content}
+                </a>
+            ) : content}
         </ElectricBorder>
     );
 }
