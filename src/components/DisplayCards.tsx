@@ -47,7 +47,7 @@ function DisplayCard({
         <ElectricBorder
             color="#9b5de5"
             className={cn(
-                "group relative h-[27rem] w-[66rem] -skew-y-[8deg] select-none rounded-xl bg-muted/70 backdrop-blur-sm transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[60rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] after:pointer-events-none hover:bg-muted",
+                "group relative h-[20.25rem] w-[49.5rem] -skew-y-[8deg] select-none rounded-xl bg-muted/70 backdrop-blur-sm transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[45rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] after:pointer-events-none hover:bg-muted",
                 className
             )}
             style={{ borderRadius: 12 }} // Matching rounded-xl approx 12px
