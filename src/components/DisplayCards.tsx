@@ -33,7 +33,7 @@ function DisplayCard({
                 <span className="relative inline-block rounded-full bg-blue-800 p-1">
                     {icon}
                 </span>
-                <p className={cn("text-lg font-medium transition-colors duration-300 group-hover:text-[#9b5de5]", titleClassName)}>{title}</p>
+                <p className={cn("text-lg font-medium transition-colors duration-300 group-hover:text-[hsl(300,100%,65%)]", titleClassName)}>{title}</p>
             </div>
             {image && (
                 <img src={image} alt={title} className="h-60 w-full rounded-lg object-cover object-top" />
