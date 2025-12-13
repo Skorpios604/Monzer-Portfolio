@@ -73,13 +73,17 @@ interface DisplayCardsProps {
 export default function DisplayCards({ cards }: DisplayCardsProps) {
     const defaultCards = [
         {
-            className: "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 hover:before:opacity-0 before:transition-opacity before:duration:700 before:left-0 before:top-0",
+            className: "[grid-area:stack] hover:-translate-y-40 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 hover:before:opacity-0 before:transition-opacity before:duration:700 before:left-0 before:top-0",
         },
         {
-            className: "[grid-area:stack] translate-x-[250px] translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 hover:before:opacity-0 before:transition-opacity before:duration:700 before:left-0 before:top-0",
+            className: "[grid-area:stack] translate-x-[250px] translate-y-10 hover:-translate-y-32 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 hover:before:opacity-0 before:transition-opacity before:duration:700 before:left-0 before:top-0",
+            title: "AI Summit",
+            description: "Vancouver | Oct 19-20",
+            date: "Upcoming",
+            image: "/ai-summit.png",
         },
         {
-            className: "[grid-area:stack] translate-x-[500px] translate-y-20 hover:translate-y-10",
+            className: "[grid-area:stack] translate-x-[500px] translate-y-20 hover:-translate-y-20",
         },
     ];
 
