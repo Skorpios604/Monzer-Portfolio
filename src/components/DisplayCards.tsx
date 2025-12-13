@@ -28,7 +28,7 @@ function DisplayCard({
     link,
 }: DisplayCardProps) {
     const content = (
-        <div className="flex h-full flex-col justify-between px-4 py-3 [&>*]:flex [&>*]:items-center [&>*]:gap-2">
+        <div className="flex h-full flex-col justify-between px-4 py-3 [&>*]:flex [&>*]:items-center [&>*]:justify-center [&>*]:gap-2">
             <div>
                 <span className="relative inline-block rounded-full bg-blue-800 p-1">
                     {icon}
