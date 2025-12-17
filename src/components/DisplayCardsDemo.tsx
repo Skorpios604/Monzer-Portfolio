@@ -9,7 +9,7 @@ const defaultCards = [
         icon: <Sparkles className="size-4 text-blue-300" />,
         title: "Featured",
         description: "Discover amazing content",
-        date: "Just now",
+
         iconClassName: "text-blue-500",
         titleClassName: "text-gray-200",
         image: cardImage3,
@@ -21,7 +21,7 @@ const defaultCards = [
         icon: <Sparkles className="size-4 text-blue-300" />,
         title: "AI Summit",
         description: "🚀Developed the official website for the 2nd Annual AI 🤖 Summit in Vancouver, hosting 1000+ attendees.✨",
-        date: "Upcoming",
+
         iconClassName: "text-blue-500",
         titleClassName: "text-gray-200",
         image: "/p26/ai-summit.png",
@@ -33,7 +33,7 @@ const defaultCards = [
         icon: <Sparkles className="size-4 text-blue-300" />,
         title: "Checkmate @ BlueWave Labs",
         description: "🚀Top contributor on this open sourced project that accumulated over 8500 GitHub stars🌟",
-        date: "Just now",
+
         iconClassName: "text-blue-500",
         titleClassName: "text-gray-200",
         image: "/p26/checkmate.png",

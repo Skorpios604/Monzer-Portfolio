@@ -10,7 +10,7 @@ interface DisplayCardProps {
     icon?: React.ReactNode;
     title?: string;
     description?: string;
-    date?: string;
+
     iconClassName?: string;
     titleClassName?: string;
     image?: string;
@@ -22,7 +22,7 @@ function DisplayCard({
     icon = <Sparkles className="size-4 text-blue-300" />,
     title = "Featured",
     description = "Discover amazing content",
-    date = "Just now",
+
     titleClassName = "text-blue-500",
     image,
     link,
@@ -39,7 +39,7 @@ function DisplayCard({
                 <img src={image} alt={title} className="h-60 w-full rounded-lg object-cover object-top" />
             )}
             <p className="text-lg text-gray-300 text-center">{description}</p>
-            <p className="text-gray-400 text-center">{date}</p>
+
         </div>
     );
 
@@ -79,7 +79,7 @@ export default function DisplayCards({ cards }: DisplayCardsProps) {
             className: "[grid-area:stack] translate-x-[250px] translate-y-10 hover:-translate-y-64 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 hover:before:opacity-0 before:transition-opacity before:duration:700 before:left-0 before:top-0",
             title: "AI Summit",
             description: "Vancouver | Oct 19-20",
-            date: "Upcoming",
+
             image: "/ai-summit.png",
         },
         {
