@@ -7,7 +7,7 @@ import cardImage3 from "../assets/card_image_3.png";
 const defaultCards = [
     {
         icon: <Sparkles className="size-4 text-blue-300" />,
-        title: "Featured",
+        title: "CyberCrate",
         description: "✨Building an e-commerce website to showcase my frontend and backend skills 🛒💻",
 
         iconClassName: "text-blue-500",

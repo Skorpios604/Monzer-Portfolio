@@ -20,7 +20,7 @@ interface DisplayCardProps {
 function DisplayCard({
     className,
     icon = <Sparkles className="size-4 text-blue-300" />,
-    title = "Featured",
+    title = "CyberCrate",
     description = "Discover amazing content",
 
     titleClassName = "text-blue-500",
