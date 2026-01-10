@@ -454,14 +454,14 @@ export const GridScan: React.FC<GridScanProps> = ({
         const container = containerRef.current;
         if (!container) return;
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false, powerPreference: "high-performance" });
         rendererRef.current = renderer;
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.setPixelRatio(1);
         renderer.setSize(container.clientWidth, container.clientHeight);
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.toneMapping = THREE.NoToneMapping;
         renderer.autoClear = false;
-        renderer.setClearColor(0x000000, 0);
+        renderer.setClearColor(0x000000, 1);
         container.appendChild(renderer.domElement);
 
         const uniforms = {
