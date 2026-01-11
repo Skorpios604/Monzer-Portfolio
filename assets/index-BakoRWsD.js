@@ -77,7 +77,17 @@ Error generating stack: `+f.message+`
           uv.x *= iResolution.x / iResolution.y;
           uv.x += uXOffset;
           
-          uv += 2.0 * fbm(uv * uSize + 0.8 * iTime * uSpeed) - 1.0;
+          float noiseVal = 2.0 * fbm(uv * uSize + 0.8 * iTime * uSpeed) - 1.0;
+          
+          // Constrain horizontal sway on narrow screens (mobile)
+          float aspect = iResolution.x / iResolution.y;
+          float swayFactor = 1.0;
+          if (aspect < 1.0) {
+              swayFactor = 0.3; // Significantly reduce sway on mobile
+          }
+          
+          uv.x += noiseVal * swayFactor;
+          uv.y += noiseVal;
           
           float dist = abs(uv.x);
           vec3 baseColor = hsv2rgb(vec3(uHue / 360.0, 0.7, 0.8));
