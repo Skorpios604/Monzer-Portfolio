@@ -1,4 +1,4 @@
-import * as React from "react"
+
 import { CommitsGrid } from "./ui/commits-grid"
 
 const CommitsGridDemo = () => {
