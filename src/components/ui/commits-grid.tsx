@@ -147,7 +147,7 @@ export const CommitsGrid = ({ text, className }: { text: string; className?: str
     return (
         <section
             className={cn(
-                "w-full max-w-xl bg-black border grid p-1.5 sm:p-3 gap-0.5 sm:gap-1 rounded-[10px] sm:rounded-[15px]",
+                "w-full max-w-xl bg-black border border-[#262629] grid p-1.5 sm:p-3 gap-0.5 sm:gap-1 rounded-[10px] sm:rounded-[15px]",
                 className
             )}
             style={{
@@ -163,7 +163,7 @@ export const CommitsGrid = ({ text, className }: { text: string; className?: str
                     <div
                         key={index}
                         className={cn(
-                            `border h-full w-full aspect-square rounded-[4px] sm:rounded-[3px]`,
+                            `border border-[#262629] h-full w-full aspect-square rounded-[4px] sm:rounded-[3px]`,
                             isHighlighted ? "animate-highlight" : "",
                             shouldFlash ? "animate-flash" : "",
                             !isHighlighted && !shouldFlash ? "bg-black" : ""
