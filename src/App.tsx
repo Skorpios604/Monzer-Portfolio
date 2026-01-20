@@ -102,7 +102,7 @@ function App() {
         />
       </div>
 
-      <div className="w-full min-h-screen relative bg-black flex items-center justify-center p-4">
+      <div id="commits-section" className="w-full min-h-screen relative bg-black flex items-center justify-center p-4">
         <CommitsGridDemo />
       </div>
     </div>

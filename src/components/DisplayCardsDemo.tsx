@@ -43,6 +43,33 @@ const defaultCards = [
 import IndustrialSwitch from "./ui/toggle-switch";
 
 export function DisplayCardsDemo() {
+    const scrollToCommits = (isOn: boolean) => {
+        if (isOn) {
+            const element = document.getElementById('commits-section');
+            if (element) {
+                const targetPosition = element.getBoundingClientRect().top + window.scrollY;
+                const startPosition = window.scrollY;
+                const distance = targetPosition - startPosition;
+                const duration = 2000;
+                let start: number | null = null;
+
+                function step(timestamp: number) {
+                    if (!start) start = timestamp;
+                    const progress = timestamp - start;
+                    const ease = (t: number) => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+                    const percentage = Math.min(progress / duration, 1);
+
+                    window.scrollTo(0, startPosition + distance * ease(percentage));
+
+                    if (progress < duration) {
+                        window.requestAnimationFrame(step);
+                    }
+                }
+                window.requestAnimationFrame(step);
+            }
+        }
+    };
+
     return (
         <div className="flex min-h-screen w-full flex-col pointer-events-auto">
             <div className="flex-1 flex items-center justify-center py-10 md:py-20">
@@ -51,7 +78,7 @@ export function DisplayCardsDemo() {
                 </div>
             </div>
             <div className="pb-20 flex justify-center">
-                <IndustrialSwitch />
+                <IndustrialSwitch onToggle={scrollToCommits} />
             </div>
         </div>
     );
