@@ -65,7 +65,7 @@ const data = [
 export function AppleStyleDock() {
     return (
         <div className='absolute bottom-2 left-1/2 max-w-full -translate-x-1/2'>
-            <Dock className='items-end pb-3'>
+            <Dock className='items-end pb-3 bg-transparent dark:bg-transparent'>
                 {data.map((item, idx) => (
                     <DockItem
                         key={idx}
