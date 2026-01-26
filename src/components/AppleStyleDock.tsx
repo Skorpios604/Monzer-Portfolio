@@ -1,62 +1,38 @@
 import {
-    Activity,
-    Component,
-    HomeIcon,
-    Mail,
-    Package,
-    ScrollText,
-    SunMoon,
+    BookOpen,
+    FileText,
+    Github,
+    Linkedin,
 } from 'lucide-react';
 
 import { Dock, DockIcon, DockItem, DockLabel } from './ui/dock';
 
 const data = [
     {
-        title: 'Home',
+        title: 'LinkedIn',
         icon: (
-            <HomeIcon className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
+            <Linkedin className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
         ),
         href: '#',
     },
     {
-        title: 'Products',
+        title: 'GitHub',
         icon: (
-            <Package className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
+            <Github className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
         ),
         href: '#',
     },
     {
-        title: 'Components',
+        title: 'Blog',
         icon: (
-            <Component className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
+            <BookOpen className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
         ),
         href: '#',
     },
     {
-        title: 'Activity',
+        title: 'Resume',
         icon: (
-            <Activity className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
-        ),
-        href: '#',
-    },
-    {
-        title: 'Change Log',
-        icon: (
-            <ScrollText className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
-        ),
-        href: '#',
-    },
-    {
-        title: 'Email',
-        icon: (
-            <Mail className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
-        ),
-        href: '#',
-    },
-    {
-        title: 'Theme',
-        icon: (
-            <SunMoon className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
+            <FileText className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
         ),
         href: '#',
     },
