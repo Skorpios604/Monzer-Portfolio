@@ -20,7 +20,7 @@ const data = [
         icon: (
             <Github className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
         ),
-        href: '#',
+        href: 'https://github.com/Skorpios604',
     },
     {
         title: 'Blog',
