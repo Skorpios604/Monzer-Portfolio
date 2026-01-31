@@ -4,6 +4,7 @@ import {
     Github,
     Linkedin,
 } from 'lucide-react';
+import resumeUrl from '../assets/3Resume.pdf';
 
 import { VerticalDock, VerticalDockIcon, VerticalDockItem, VerticalDockLabel } from './ui/vertical-dock';
 
@@ -34,7 +35,7 @@ const data = [
         icon: (
             <FileText className='h-full w-full text-fuchsia-500 dark:text-fuchsia-400' />
         ),
-        href: '#',
+        href: resumeUrl,
     },
 ];
 
