@@ -23,7 +23,7 @@ const defaultCards = [
 
         iconClassName: "text-blue-500",
         titleClassName: "text-gray-200",
-        image: "/p26/ai-summit.png",
+        image: "/ai-summit.png",
         link: "https://vanaisummit.com/",
         className: "w-full max-w-[350px]",
     },
@@ -34,7 +34,7 @@ const defaultCards = [
 
         iconClassName: "text-blue-500",
         titleClassName: "text-gray-200",
-        image: "/p26/checkmate.png",
+        image: "/checkmate.png",
         link: "https://github.com/bluewave-labs/Checkmate",
         className: "w-full max-w-[350px]",
     },
