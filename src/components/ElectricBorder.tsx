@@ -8,7 +8,7 @@ type ElectricBorderProps = PropsWithChildren<{
     thickness?: number;
     className?: string;
     style?: CSSProperties;
-}>;
+} & React.HTMLAttributes<HTMLDivElement>>;
 
 function hexToRgba(hex: string, alpha = 1): string {
     if (!hex) return `rgba(0,0,0,${alpha})`;
@@ -33,7 +33,8 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     chaos = 1,
     thickness = 2,
     className,
-    style
+    style,
+    ...props
 }) => {
     const rawId = useId().replace(/[:]/g, '');
     const filterId = `turbulent-displace-${rawId}`;
@@ -153,7 +154,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     };
 
     return (
-        <div ref={rootRef} className={'relative isolate ' + (className ?? '')} style={style}>
+        <div ref={rootRef} className={'relative isolate ' + (className ?? '')} style={style} {...props}>
             {!isMobile && (
                 <svg
                     ref={svgRef}

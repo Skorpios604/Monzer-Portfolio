@@ -27,6 +27,12 @@ function DisplayCard({
     image,
     link,
 }: DisplayCardProps) {
+    const [isHovered, setIsHovered] = React.useState(false);
+
+    // Theme pink color: #FF4DFF (matches hsl(300, 100%, 65%))
+    const hoverColor = "#FF4DFF";
+    const defaultColor = "#9b5de5";
+
     const content = (
         <div className="flex h-full flex-col justify-between px-4 py-3">
             <div className="flex items-center gap-2">
@@ -45,9 +51,11 @@ function DisplayCard({
 
     return (
         <ElectricBorder
-            color="#9b5de5"
+            color={isHovered ? hoverColor : defaultColor}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
             className={cn(
-                "group relative select-none rounded-xl bg-muted/70 backdrop-blur-sm transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-full after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] after:pointer-events-none hover:bg-muted",
+                "group relative select-none rounded-xl bg-muted/70 backdrop-blur-sm transition-all duration-300 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-full after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] after:pointer-events-none hover:bg-muted hover:scale-105 hover:shadow-[0_0_20px_-5px_rgba(255,77,255,0.4)]",
                 className
             )}
             style={{ borderRadius: 12 }} // Matching rounded-xl approx 12px
