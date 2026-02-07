@@ -78,6 +78,11 @@ const letterPatterns: { [key: string]: number[] } = {
     ],
     "9": [1, 2, 3, 50, 100, 151, 152, 153, 154, 204, 254, 304, 54, 104],
     " ": [],
+    ".": [252],
+    "@": [
+        1, 2, 3, 50, 54, 100, 102, 104, 150, 152, 154, 200, 202, 204, 250, 301, 302,
+        303,
+    ],
 };
 
 export const CommitsGrid = ({ text, className }: { text: string; className?: string }) => {
@@ -152,36 +157,39 @@ export const CommitsGrid = ({ text, className }: { text: string; className?: str
     return (
         <section
             className={cn(
-                "w-full max-w-xl bg-black border border-[#262629] grid p-1.5 sm:p-3 gap-0.5 sm:gap-1 rounded-[10px] sm:rounded-[15px]",
+                "w-full max-w-xl bg-black border border-[#262629] grid p-1.5 sm:p-3 gap-px rounded-[10px] sm:rounded-[15px]",
                 className
             )}
             style={{
                 gridTemplateColumns: `repeat(${gridWidth}, minmax(0, 1fr))`,
                 gridTemplateRows: `repeat(${gridHeight}, minmax(0, 1fr))`,
-            }}
+            }
+            }
         >
-            {Array.from({ length: gridWidth * gridHeight }).map((_, index) => {
-                const isHighlighted = highlightedCells.includes(index);
-                const shouldFlash = !isHighlighted && getRandomFlash();
+            {
+                Array.from({ length: gridWidth * gridHeight }).map((_, index) => {
+                    const isHighlighted = highlightedCells.includes(index);
+                    const shouldFlash = !isHighlighted && getRandomFlash();
 
-                return (
-                    <div
-                        key={index}
-                        className={cn(
-                            `border border-[#262629] h-full w-full aspect-square rounded-[4px] sm:rounded-[3px]`,
-                            isHighlighted ? "animate-highlight" : "",
-                            shouldFlash ? "animate-flash" : "",
-                            !isHighlighted && !shouldFlash ? "bg-black" : ""
-                        )}
-                        style={
-                            {
-                                animationDelay: getRandomDelay(),
-                                "--highlight": getRandomColor(),
-                            } as CSSProperties
-                        }
-                    />
-                );
-            })}
-        </section>
+                    return (
+                        <div
+                            key={index}
+                            className={cn(
+                                `border border-[#262629] h-full w-full aspect-square rounded-[4px] sm:rounded-[3px]`,
+                                isHighlighted ? "animate-highlight" : "",
+                                shouldFlash ? "animate-flash" : "",
+                                !isHighlighted && !shouldFlash ? "bg-black" : ""
+                            )}
+                            style={
+                                {
+                                    animationDelay: getRandomDelay(),
+                                    "--highlight": getRandomColor(),
+                                } as CSSProperties
+                            }
+                        />
+                    );
+                })
+            }
+        </section >
     );
 };
