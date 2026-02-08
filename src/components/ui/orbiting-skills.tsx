@@ -210,21 +210,36 @@ OrbitingSkill.displayName = 'OrbitingSkill';
 
 // --- Optimized Orbit Path Component ---
 const GlowingOrbitPath = memo(({ radius, glowColor = 'pink', animationDelay = 0 }: GlowingOrbitPathProps) => {
-  const glowColors = {
-    pink: { // Changed from cyan to our "pink" (#d946ef)
-      primary: 'rgba(217, 70, 239, 0.4)',
-      secondary: 'rgba(217, 70, 239, 0.2)',
-      border: 'rgba(217, 70, 239, 0.3)'
-    },
-    purple: { // Changed from old purple to our "purple" (#c026d3) for consistency if needed, or keep distinct.
-      // Let's align it with #c026d3 (fuchsia-600) for "purple"
-      primary: 'rgba(192, 38, 211, 0.4)',
-      secondary: 'rgba(192, 38, 211, 0.2)',
-      border: 'rgba(192, 38, 211, 0.3)'
-    }
+  // Define the two color states
+  const pinkColors = {
+    primary: 'rgba(217, 70, 239, 0.4)',
+    secondary: 'rgba(217, 70, 239, 0.2)',
+    border: 'rgba(217, 70, 239, 0.3)'
   };
 
-  const colors = glowColors[glowColor] || glowColors.pink;
+  const purpleColors = {
+    primary: 'rgba(192, 38, 211, 0.4)',
+    secondary: 'rgba(192, 38, 211, 0.2)',
+    border: 'rgba(192, 38, 211, 0.3)'
+  };
+
+  // Determine animation phases based on initial glowColor preference
+  // If pink, start visible (fade-1), duplicate purple starts invisible (fade-2)
+  // If purple, start invisible (fade-2), duplicate purple starts visible (fade-1) -> Wait, logic check:
+  // We want to oscillate between Pink and Purple.
+  // Layer 1: Pink. Animation: ?
+  // Layer 2: Purple. Animation: ?
+
+  // If glowColor is 'pink':
+  // Pink Layer: Starts 1, goes to 0, goes to 1. (orbit-pulse-1)
+  // Purple Layer: Starts 0, goes to 1, goes to 0. (orbit-pulse-2)
+
+  // If glowColor is 'purple':
+  // Pink Layer: Starts 0, goes to 1, goes to 0. (orbit-pulse-2)
+  // Purple Layer: Starts 1, goes to 0, goes to 1. (orbit-pulse-1)
+
+  const pinkAnimationName = glowColor === 'pink' ? 'orbit-pulse-1' : 'orbit-pulse-2';
+  const purpleAnimationName = glowColor === 'pink' ? 'orbit-pulse-2' : 'orbit-pulse-1';
 
   return (
     <div
@@ -232,28 +247,55 @@ const GlowingOrbitPath = memo(({ radius, glowColor = 'pink', animationDelay = 0 
       style={{
         width: `${radius * 2}px`,
         height: `${radius * 2}px`,
-        animationDelay: `${animationDelay}s`,
       }}
     >
-      {/* Glowing background */}
-      <div
-        className="absolute inset-0 rounded-full animate-pulse"
-        style={{
-          background: `radial-gradient(circle, transparent 30%, ${colors.secondary} 70%, ${colors.primary} 100%)`,
-          boxShadow: `0 0 60px ${colors.primary}, inset 0 0 60px ${colors.secondary}`,
-          animation: 'pulse 4s ease-in-out infinite',
-          animationDelay: `${animationDelay}s`,
-        }}
-      />
-
-      {/* Static ring for depth */}
+      {/* Pink Layer */}
       <div
         className="absolute inset-0 rounded-full"
         style={{
-          border: `1px solid ${colors.border}`,
-          boxShadow: `inset 0 0 20px ${colors.secondary}`,
+          animation: `${pinkAnimationName} 4s ease-in-out infinite`,
+          animationDelay: `${animationDelay}s`,
         }}
-      />
+      >
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{
+            background: `radial-gradient(circle, transparent 30%, ${pinkColors.secondary} 70%, ${pinkColors.primary} 100%)`,
+            boxShadow: `0 0 60px ${pinkColors.primary}, inset 0 0 60px ${pinkColors.secondary}`,
+          }}
+        />
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{
+            border: `1px solid ${pinkColors.border}`,
+            boxShadow: `inset 0 0 20px ${pinkColors.secondary}`,
+          }}
+        />
+      </div>
+
+      {/* Purple Layer */}
+      <div
+        className="absolute inset-0 rounded-full"
+        style={{
+          animation: `${purpleAnimationName} 4s ease-in-out infinite`,
+          animationDelay: `${animationDelay}s`,
+        }}
+      >
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{
+            background: `radial-gradient(circle, transparent 30%, ${purpleColors.secondary} 70%, ${purpleColors.primary} 100%)`,
+            boxShadow: `0 0 60px ${purpleColors.primary}, inset 0 0 60px ${purpleColors.secondary}`,
+          }}
+        />
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{
+            border: `1px solid ${purpleColors.border}`,
+            boxShadow: `inset 0 0 20px ${purpleColors.secondary}`,
+          }}
+        />
+      </div>
     </div>
   );
 });
@@ -289,6 +331,17 @@ export default function OrbitingSkills() {
 
   return (
     <main className="w-full flex items-center justify-center overflow-hidden">
+      <style>{`
+        @keyframes orbit-pulse-1 {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        @keyframes orbit-pulse-2 {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
+      `}</style>
+
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
