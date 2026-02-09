@@ -212,15 +212,15 @@ OrbitingSkill.displayName = 'OrbitingSkill';
 const GlowingOrbitPath = memo(({ radius, glowColor = 'pink', animationDelay = 0 }: GlowingOrbitPathProps) => {
   // Define the two color states
   const pinkColors = {
-    primary: 'rgba(217, 70, 239, 0.4)',
-    secondary: 'rgba(217, 70, 239, 0.2)',
-    border: 'rgba(217, 70, 239, 0.3)'
+    primary: 'rgba(236, 72, 153, 0.6)',
+    secondary: 'rgba(236, 72, 153, 0.3)',
+    border: 'rgba(236, 72, 153, 0.4)'
   };
 
   const purpleColors = {
-    primary: 'rgba(192, 38, 211, 0.4)',
-    secondary: 'rgba(192, 38, 211, 0.2)',
-    border: 'rgba(192, 38, 211, 0.3)'
+    primary: 'rgba(124, 58, 237, 0.6)',
+    secondary: 'rgba(124, 58, 237, 0.3)',
+    border: 'rgba(124, 58, 237, 0.4)'
   };
 
   // Determine animation phases based on initial glowColor preference
@@ -253,7 +253,7 @@ const GlowingOrbitPath = memo(({ radius, glowColor = 'pink', animationDelay = 0 
       <div
         className="absolute inset-0 rounded-full"
         style={{
-          animation: `${pinkAnimationName} 4s ease-in-out infinite`,
+          animation: `${pinkAnimationName} 3s ease-in-out infinite`,
           animationDelay: `${animationDelay}s`,
         }}
       >
@@ -277,7 +277,7 @@ const GlowingOrbitPath = memo(({ radius, glowColor = 'pink', animationDelay = 0 
       <div
         className="absolute inset-0 rounded-full"
         style={{
-          animation: `${purpleAnimationName} 4s ease-in-out infinite`,
+          animation: `${purpleAnimationName} 3s ease-in-out infinite`,
           animationDelay: `${animationDelay}s`,
         }}
       >
@@ -325,8 +325,8 @@ export default function OrbitingSkills() {
   }, [isPaused]);
 
   const orbitConfigs: Array<{ radius: number; glowColor: GlowColor; delay: number }> = [
-    { radius: 100, glowColor: 'pink', delay: 0 },
-    { radius: 180, glowColor: 'purple', delay: 1.5 }
+    { radius: 100, glowColor: 'purple', delay: 0 },
+    { radius: 180, glowColor: 'pink', delay: 0 }
   ];
 
   return (
