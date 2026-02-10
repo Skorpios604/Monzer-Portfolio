@@ -210,34 +210,24 @@ OrbitingSkill.displayName = 'OrbitingSkill';
 
 // --- Optimized Orbit Path Component ---
 const GlowingOrbitPath = memo(({ radius, glowColor = 'pink', animationDelay = 0 }: GlowingOrbitPathProps) => {
-  // Define the two color states
+  // Use colors from ShatterButton: #9b5de5 (purple) and #ff00ff (pink/magenta)
+  // Converting to RGBA for opacity handling
+
+  // Pink/Magenta (#ff00ff) -> 255, 0, 255
   const pinkColors = {
-    primary: 'rgba(236, 72, 153, 0.6)',
-    secondary: 'rgba(236, 72, 153, 0.3)',
-    border: 'rgba(236, 72, 153, 0.4)'
+    primary: 'rgba(255, 0, 255, 0.6)',
+    secondary: 'rgba(255, 0, 255, 0.3)',
+    border: 'rgba(255, 0, 255, 0.4)'
   };
 
+  // Purple (#9b5de5) -> 155, 93, 229
   const purpleColors = {
-    primary: 'rgba(124, 58, 237, 0.6)',
-    secondary: 'rgba(124, 58, 237, 0.3)',
-    border: 'rgba(124, 58, 237, 0.4)'
+    primary: 'rgba(155, 93, 229, 0.6)',
+    secondary: 'rgba(155, 93, 229, 0.3)',
+    border: 'rgba(155, 93, 229, 0.4)'
   };
 
-  // Determine animation phases based on initial glowColor preference
-  // If pink, start visible (fade-1), duplicate purple starts invisible (fade-2)
-  // If purple, start invisible (fade-2), duplicate purple starts visible (fade-1) -> Wait, logic check:
-  // We want to oscillate between Pink and Purple.
-  // Layer 1: Pink. Animation: ?
-  // Layer 2: Purple. Animation: ?
-
-  // If glowColor is 'pink':
-  // Pink Layer: Starts 1, goes to 0, goes to 1. (orbit-pulse-1)
-  // Purple Layer: Starts 0, goes to 1, goes to 0. (orbit-pulse-2)
-
-  // If glowColor is 'purple':
-  // Pink Layer: Starts 0, goes to 1, goes to 0. (orbit-pulse-2)
-  // Purple Layer: Starts 1, goes to 0, goes to 1. (orbit-pulse-1)
-
+  // Pulse animation alternations
   const pinkAnimationName = glowColor === 'pink' ? 'orbit-pulse-1' : 'orbit-pulse-2';
   const purpleAnimationName = glowColor === 'pink' ? 'orbit-pulse-2' : 'orbit-pulse-1';
 
@@ -249,7 +239,7 @@ const GlowingOrbitPath = memo(({ radius, glowColor = 'pink', animationDelay = 0 
         height: `${radius * 2}px`,
       }}
     >
-      {/* Pink Layer */}
+      {/* Pink/Magenta Layer */}
       <div
         className="absolute inset-0 rounded-full"
         style={{
@@ -324,6 +314,8 @@ export default function OrbitingSkills() {
     return () => cancelAnimationFrame(animationFrameId);
   }, [isPaused]);
 
+  // Updated colors to match ShatterButton
+  // #9b5de5 (Purple) and #ff00ff (Magenta)
   const orbitConfigs: Array<{ radius: number; glowColor: GlowColor; delay: number }> = [
     { radius: 100, glowColor: 'purple', delay: 0 },
     { radius: 180, glowColor: 'pink', delay: 0 }
@@ -359,16 +351,16 @@ export default function OrbitingSkills() {
         onMouseLeave={() => setIsPaused(false)}
       >
 
-        {/* Central "Code" Icon with enhanced glow */}
+        {/* Central "Code" Icon with enhanced glow matching the new colors */}
         <div className="w-20 h-20 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex items-center justify-center z-10 relative shadow-2xl">
-          <div className="absolute inset-0 rounded-full bg-fuchsia-500/30 blur-xl animate-pulse"></div>
-          <div className="absolute inset-0 rounded-full bg-purple-500/20 blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute inset-0 rounded-full bg-[#ff00ff]/30 blur-xl animate-pulse"></div>
+          <div className="absolute inset-0 rounded-full bg-[#9b5de5]/20 blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           <div className="relative z-10">
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="url(#gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <defs>
                 <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#d946ef" />
-                  <stop offset="100%" stopColor="#c026d3" />
+                  <stop offset="0%" stopColor="#ff00ff" /> {/* Magenta */}
+                  <stop offset="100%" stopColor="#9b5de5" /> {/* Purple */}
                 </linearGradient>
               </defs>
               <polyline points="16 18 22 12 16 6"></polyline>
