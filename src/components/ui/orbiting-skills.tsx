@@ -318,7 +318,7 @@ export default function OrbitingSkills() {
   // #9b5de5 (Purple) and #ff00ff (Magenta)
   const orbitConfigs: Array<{ radius: number; glowColor: GlowColor; delay: number }> = [
     { radius: 100, glowColor: 'purple', delay: 0 },
-    { radius: 180, glowColor: 'pink', delay: 0 }
+    { radius: 180, glowColor: 'purple', delay: 0 }
   ];
 
   return (
