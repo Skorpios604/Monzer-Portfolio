@@ -363,8 +363,12 @@ export default function OrbitingSkills() {
                   <stop offset="100%" stopColor="#9b5de5" /> {/* Purple */}
                 </linearGradient>
               </defs>
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
+              <g stroke="url(#gradient)" strokeWidth="0.75" fill="none">
+                <circle cx="12" cy="12" r="2" fill="url(#gradient)" />
+                <ellipse cx="12" cy="12" rx="10" ry="4.5" />
+                <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)" />
+                <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(120 12 12)" />
+              </g>
             </svg>
           </div>
         </div>
