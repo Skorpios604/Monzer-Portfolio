@@ -125,7 +125,7 @@ const skillsConfig: SkillConfig[] = [
   {
     id: 'css',
     orbitRadius: 100,
-    size: 45,
+    size: 40,
     speed: 1,
     iconType: 'css',
     phaseShift: Math.PI / 2,
