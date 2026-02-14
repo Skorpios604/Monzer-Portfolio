@@ -2,7 +2,7 @@
 import React, { useEffect, useState, memo } from 'react';
 
 // --- Type Definitions ---
-type IconType = 'html' | 'css' | 'javascript' | 'typescript' | 'react' | 'node' | 'tailwind';
+type IconType = 'html' | 'css' | 'javascript' | 'typescript' | 'react' | 'node' | 'tailwind' | 'next';
 
 type GlowColor = 'purple' | 'pink';
 
@@ -99,6 +99,16 @@ const iconComponents: Record<IconType, { component: () => React.JSX.Element; col
       </svg>
     ),
     color: '#06B6D4'
+  },
+  next: {
+    component: () => (
+      <svg role="img" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" shapeRendering="geometricPrecision">
+        <circle cx="12" cy="12" r="11.4" fill="black" stroke="black" strokeWidth="1.2" />
+        <path d="M12 24c5.49 0 10.054-3.793 11.432-8.868l-8.62-11.22C14.156 3.056 13.11 2.5 12 2.5c-5.49 0-10.054 3.793-11.432 8.868l8.62 11.22c.656.854 1.702 1.412 2.812 1.412z" fill="#00000000" />
+        <path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z" fill="white" />
+      </svg>
+    ),
+    color: '#ffffff'
   }
 };
 
@@ -169,7 +179,7 @@ const skillsConfig: SkillConfig[] = [
     size: 45,
     speed: -0.6,
     iconType: 'node',
-    phaseShift: (2 * Math.PI) / 3,
+    phaseShift: Math.PI / 2,
     glowColor: 'purple',
     label: 'Node.js'
   },
@@ -179,9 +189,19 @@ const skillsConfig: SkillConfig[] = [
     size: 40,
     speed: -0.6,
     iconType: 'tailwind',
-    phaseShift: (4 * Math.PI) / 3,
+    phaseShift: Math.PI,
     glowColor: 'purple',
     label: 'Tailwind CSS'
+  },
+  {
+    id: 'next',
+    orbitRadius: 180,
+    size: 45,
+    speed: -0.6,
+    iconType: 'next',
+    phaseShift: (3 * Math.PI) / 2,
+    glowColor: 'purple',
+    label: 'Next.js'
   },
 ];
 
