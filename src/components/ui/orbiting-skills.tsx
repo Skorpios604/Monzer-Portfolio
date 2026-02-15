@@ -2,7 +2,7 @@
 import React, { useEffect, useState, memo } from 'react';
 
 // --- Type Definitions ---
-type IconType = 'html' | 'css' | 'javascript' | 'typescript' | 'react' | 'node' | 'tailwind' | 'next';
+type IconType = 'html' | 'css' | 'javascript' | 'typescript' | 'react' | 'node' | 'tailwind' | 'next' | 'npm';
 
 type GlowColor = 'purple' | 'pink';
 
@@ -109,6 +109,15 @@ const iconComponents: Record<IconType, { component: () => React.JSX.Element; col
       </svg>
     ),
     color: '#ffffff'
+  },
+  npm: {
+    component: () => (
+      <svg role="img" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        <rect width="24" height="24" fill="#CB3837" rx="2" ry="2" />
+        <path fill="#FFF" transform="translate(3, 8)" d="M1,1v4h2v-3h1v3h1v-4h1v5h2v-4h1v2h-1v1h2v-4h1v4h2v-3h1v3h1v-3h1v3h1v-4" />
+      </svg>
+    ),
+    color: '#CB3837'
   }
 };
 
@@ -179,7 +188,7 @@ const skillsConfig: SkillConfig[] = [
     size: 45,
     speed: -0.6,
     iconType: 'node',
-    phaseShift: Math.PI / 2,
+    phaseShift: (2 * Math.PI) / 5,
     glowColor: 'purple',
     label: 'Node.js'
   },
@@ -189,7 +198,7 @@ const skillsConfig: SkillConfig[] = [
     size: 40,
     speed: -0.6,
     iconType: 'tailwind',
-    phaseShift: Math.PI,
+    phaseShift: (4 * Math.PI) / 5,
     glowColor: 'purple',
     label: 'Tailwind CSS'
   },
@@ -199,9 +208,19 @@ const skillsConfig: SkillConfig[] = [
     size: 45,
     speed: -0.6,
     iconType: 'next',
-    phaseShift: (3 * Math.PI) / 2,
+    phaseShift: (6 * Math.PI) / 5,
     glowColor: 'purple',
     label: 'Next.js'
+  },
+  {
+    id: 'npm',
+    orbitRadius: 180,
+    size: 45,
+    speed: -0.6,
+    iconType: 'npm',
+    phaseShift: (8 * Math.PI) / 5,
+    glowColor: 'purple',
+    label: 'npm'
   },
 ];
 
