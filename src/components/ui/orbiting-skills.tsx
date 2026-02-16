@@ -2,7 +2,7 @@
 import React, { useEffect, useState, memo } from 'react';
 
 // --- Type Definitions ---
-type IconType = 'html' | 'css' | 'javascript' | 'typescript' | 'react' | 'node' | 'tailwind' | 'next' | 'npm';
+type IconType = 'html' | 'css' | 'javascript' | 'typescript' | 'react' | 'node' | 'tailwind' | 'next' | 'npm' | 'mongodb';
 
 type GlowColor = 'purple' | 'pink';
 
@@ -125,6 +125,14 @@ const iconComponents: Record<IconType, { component: () => React.JSX.Element; col
       </svg>
     ),
     color: '#CB3837'
+  },
+  mongodb: {
+    component: () => (
+      <svg role="img" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z" fill="#47A248" />
+      </svg>
+    ),
+    color: '#47A248'
   }
 };
 
@@ -195,7 +203,7 @@ const skillsConfig: SkillConfig[] = [
     size: 45,
     speed: -0.6,
     iconType: 'node',
-    phaseShift: (2 * Math.PI) / 5,
+    phaseShift: Math.PI / 3, // 60 degrees
     glowColor: 'purple',
     label: 'Node.js'
   },
@@ -205,7 +213,7 @@ const skillsConfig: SkillConfig[] = [
     size: 40,
     speed: -0.6,
     iconType: 'tailwind',
-    phaseShift: (4 * Math.PI) / 5,
+    phaseShift: (2 * Math.PI) / 3, // 120 degrees
     glowColor: 'purple',
     label: 'Tailwind CSS'
   },
@@ -215,7 +223,7 @@ const skillsConfig: SkillConfig[] = [
     size: 45,
     speed: -0.6,
     iconType: 'next',
-    phaseShift: (6 * Math.PI) / 5,
+    phaseShift: Math.PI, // 180 degrees
     glowColor: 'purple',
     label: 'Next.js'
   },
@@ -225,9 +233,19 @@ const skillsConfig: SkillConfig[] = [
     size: 45,
     speed: -0.6,
     iconType: 'npm',
-    phaseShift: (8 * Math.PI) / 5,
+    phaseShift: (4 * Math.PI) / 3, // 240 degrees
     glowColor: 'purple',
     label: 'npm'
+  },
+  {
+    id: 'mongodb',
+    orbitRadius: 180,
+    size: 45,
+    speed: -0.6,
+    iconType: 'mongodb',
+    phaseShift: (5 * Math.PI) / 3, // 300 degrees
+    glowColor: 'purple',
+    label: 'MongoDB'
   },
 ];
 
